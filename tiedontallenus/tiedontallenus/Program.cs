@@ -11,7 +11,20 @@ namespace tiedontallenus
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello!");
+
+            string tiedosto = @"C:\temp\Lämpötila.txt";
+
+            //luetaan tiedosto
+            if (File.Exists(tiedosto))
+            {
+                string aiempiArvo = File.ReadAllText(tiedosto);
+                Console.WriteLine("Aiempi asetettu lämpötila: " + aiempiArvo);
+            }
+
+            else
+            {
+                Console.WriteLine("Hello!");
+            }
 
             int lämpötila = 0;
             Console.Write("Anna uusi lämpötila: ");
@@ -19,7 +32,6 @@ namespace tiedontallenus
             lämpötila = int.Parse(syöte);
 
             //tiedostoon kirjoittaminen
-            string tiedosto = @"C:\temp\Lämpötila.txt";
             File.WriteAllText(tiedosto, lämpötila.ToString());
             Console.WriteLine("Uusi lämpötila tallennettu!");
 
