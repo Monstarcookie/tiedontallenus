@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace tiedontallenus
 {
@@ -11,7 +12,19 @@ namespace tiedontallenus
         static void Main(string[] args)
         {
             Console.WriteLine("Hello!");
-            Console.Read();
+
+            int lämpötila = 0;
+            Console.Write("Anna uusi lämpötila: ");
+            string syöte = Console.ReadLine();
+            lämpötila = int.Parse(syöte);
+
+            //tiedostoon kirjoittaminen
+            string tiedosto = @"C:\temp\Lämpötila.txt";
+            File.WriteAllText(tiedosto, lämpötila.ToString());
+            Console.WriteLine("Uusi lämpötila tallennettu!");
+
+
+            Console.ReadLine();
         }
     }
 }
